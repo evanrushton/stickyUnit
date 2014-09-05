@@ -1,0 +1,16 @@
+<% if flash[:notice] %>
+	<div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%= form_tag action: "post_login", method: :post  do %>
+	<table>
+		<tr>
+			<td><%= label_tag(:login, "Login Name:") %></td>
+			<td><%= text_field_tag(:login) %></td>
+		</tr>
+	</table>
+	<%= submit_tag("Submit") %>
+<% end %>
+
+<h1 style="text-align:left;"> OR </h1>
+<%= link_to "New Teacher", :new_user %>

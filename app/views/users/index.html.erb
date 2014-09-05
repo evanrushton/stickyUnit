@@ -1,0 +1,10 @@
+<!-- A list of all users as links to their users/id url -->
+
+<div class="users">
+	<h1>Teachers</h1>
+	<ul>
+		<% @all_users.each do |user| %>
+			<li class="users"><%= link_to user.login, user %></li>
+		<% end %>
+	</ul>
+</div>

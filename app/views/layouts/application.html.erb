@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title> <%= @title %> </title>
+     <link href="https://www.illustrativemathematics.org/assets/application-screen-b8decde693077826d05e799c48a0cc51.css" media="screen,projection" rel="stylesheet" type="text/css" />
+    <link href="https://www.illustrativemathematics.org/assets/application-print-b03017a9eaf12e2eab17a1b8d7827671.css" media="print" rel="stylesheet" type="text/css" />
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="header">
+		<div class="logo">
+			<a class="logo" href="/users"> <%=image_tag("StickyUnitLogo.gif", height: "60", alt: "Sticky Unit")%></a>
+		</div>
+		<div class="about">
+			<a class="about" href="/about">About</a>
+		</div>
+		<div class="login">
+			 <% if (@logged_user != nil && session[:current_user_id] == @logged_user.id) %>
+            <%= link_to "Hi " + @logged_user.login + "! Logout", logout_users_path, class: "login" %>
+         <% else %>
+            <%= link_to "Login", "/users/login", class: "login" %>
+         <% end %>
+		</div>
+	</div>
+
+<%= yield %>
+
+</body>
+</html>

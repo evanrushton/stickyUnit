@@ -1,0 +1,14 @@
+<h4 class="heading"> Knowledge and Skills </h4>
+<div id="sticky1" class="post-its">
+<button onclick="addKnowledge()" class="addButton">Add Knowledge</button>
+	<% @unit.goals.each do |g| %>
+		<% if g.level == 1 %>
+		<div class="smallSticky">
+			<%=image_tag("LittlePurpleSticky.gif", height: "200", alt: "Purple Sticky")%>
+			<div class="smallBox">
+				 <span class="smallText"><%= g.goal %> </span>
+			</div>
+		</div>
+		<% end %>
+	<% end %>
+</div>

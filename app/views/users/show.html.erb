@@ -1,0 +1,17 @@
+<!-- A list of all units belonging to a specified user with the associated goals -->
+<% if flash[:notice] %>
+	<div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<div>
+	<%= link_to "New Unit", :new_unit %>
+	<div class="title"><h1>Units for <%= @user.login %></h1></div>
+	<% @units.each do |unit| %>
+		<div class="unit">
+		<h4>	<%= link_to unit.name, unit %> </h4>
+		</div>
+		<h1 class="gap"> </h1>
+	<%end%>	
+</div>
+
+

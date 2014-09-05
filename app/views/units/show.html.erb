@@ -1,0 +1,178 @@
+<!-- The unit layout with the associated goals -->
+<% if flash[:notice] %>
+	<div id="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<script>
+$(document).on("ready page:load", function() {
+	$('#accordion').on('show.bs.collapse', function () {
+    	$('#accordion .in').collapse('hide');
+	});
+	$(".smallText").on("keyup change", function() {
+	var numDivs = $("#sticky1").find('div').size();
+	console.log(numDivs)
+   $("#knowSkill"+numDivs.toString()).text(this.value);
+});
+});
+</script>
+
+<div class="title"><h1><%= @unit.name %></h1></div>
+
+<div class="container unit">
+ <div class="content">
+  <div class="panel-group" id="accordion">
+    
+<!-- GOALS PANEL -->
+
+    <div class="panel panel-default">
+     	<div class="panel-heading">
+     	<h4 class="panel-title">
+     	<a class="accordianToggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Desired Results</a>
+     	</h4>
+     	</div>
+     <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="container panel-body">
+   
+		<%= render "howTo_big_idea" %>
+
+		<%= render "big_idea" %>
+		
+		<%= render "standards" %>
+			
+		<%= render "howTo_enduring_understandings" %>
+
+		<%= render "enduring_understandings" %>
+
+		<%= render "howTo_essential_questions" %>
+
+		<%= render "essential_questions" %>
+	
+		<%= render "howTo_knowledge_skills" %>
+
+		<%= render "knowledge_skills" %>
+
+      </div>
+     </div>
+    </div>        
+
+<!-- EVIDENCE PANEL -->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+            <a class="accordianToggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Evidence of Understanding</a>
+         	</h4>
+        </div>
+     <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+
+		<%= render "howTo_evidence_1" %>
+
+		<%= render "evidence_1" %>
+
+		<%= render "howTo_evidence_2" %>
+
+		<%= render "evidence_2" %>
+
+	  </div>
+     </div>
+    </div>
+  
+<!-- ASSESSMENTS PANEL -->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+    		<a class="accordianToggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Assessments</a>
+  			</h4>
+        </div>
+     <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+              
+		<%= render "howTo_novice_tasks" %>
+
+		<%= render "novice_tasks" %>
+
+		<%= render "howTo_apprentice_tasks" %>
+
+		<%= render "apprentice_tasks" %>
+
+		<%= render "howTo_expert_tasks" %>
+
+		<%= render "expert_tasks" %>
+
+      </div>
+     </div>
+    </div>
+
+<!-- LEARNING ACTIVITIES PANEL -->
+
+	<div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+    		<a class="accordianToggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Learning Activities</a>
+  			</h4>
+        </div>
+     <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+               
+		<%= render "howTo_activities" %>
+
+		<%= render "activities" %>
+
+      </div>
+     </div>
+    </div>
+
+  </div>
+ </div>
+</div>
+
+<!-- Add new stickies to div Id -->
+<script type="text/javascript">
+		function addUnderstanding() {
+			var stickies = document.getElementById("sticky3");
+			stickies.innerHTML+="<div class='mediumSticky'><img height='200' src='/assets/PinkSticky.gif' /><div class='mediumBox'><textarea class='mediumText'></textarea></div></div>";
+		};
+		function addQuestion() {
+			var stickies = document.getElementById("sticky2");
+			stickies.innerHTML+="<div class='mediumSticky'><img height='200' src='/assets/RedSticky.gif' /><div class='mediumBox'><textarea class='mediumText'></textarea></div></div>";
+		};
+		function addKnowledge() {
+			var stickies = document.getElementById("sticky1");
+			var evidences = document.getElementById("goalEvidence1");
+			var numDivs = evidences.getElementsByTagName('div').length
+			stickies.innerHTML+="<div class='smallSticky'><img height='200' src='/assets/SmallPurpleSticky.gif' /><div class='smallBox'><textarea class='smallText'></textarea></div></div>";
+			evidences.innerHTML+="<div class='knowEvidence'><div class='post-it1Center'><img height='200' src='/assets/SmallPurpleSticky.gif' /><div class='smallBox'><span id='knowSkill"+numDivs+"' class='smallText'></span></div></div><div class='mediumSticky'><img height='200' src='/assets/YellowSticky.gif' /><div class='mediumBox'><textarea class='mediumText'></textarea></div></div></div>";
+		};
+		function addEvidence2() {
+			var stickies = document.getElementById("goalEvidence2");
+			stickies.innerHTML+="<div class='largeSticky'><img height='200' src='/assets/LongYellowSticky.gif' /><div class='largeBox'><textarea class='largeText'></textarea></div></div>";
+		};
+
+		function addNovice() {
+			var stickies = document.getElementById("noviceTasks");
+			stickies.innerHTML+="<div class='mediumSticky'><img height='200' src='/assets/OrangeSticky.gif' /><div class='mediumBox'><textarea class='mediumText'></textarea></div></div>";
+		};
+		function addApprentice() {
+			var stickies = document.getElementById("apprenticeTasks");
+			stickies.innerHTML+="<div class='largeSticky'><img height='200' src='/assets/LongOrangeSticky.gif' /><div class='largeBox'><textarea class='largeText'></textarea></div></div>";
+		};
+		function addExpert() {
+			var stickies = document.getElementById("expertTasks");
+			stickies.innerHTML+="<div class='largeSticky'><img height='200' src='/assets/LongOrangeSticky.gif' /><div class='largeBox'><textarea class='largeText'></textarea></div></div>";
+		};
+
+		function addActivity() {
+			var stickies = document.getElementById("expertTasks");
+			stickies.innerHTML+="<div class='largeSticky'><img height='200' src='/assets/LongOrangeSticky.gif' /><div class='largeBox'><textarea class='largeText'></textarea></div></div>";
+		};
+</script>
+
+
+
+
+
+
+
+

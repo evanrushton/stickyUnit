@@ -1,0 +1,14 @@
+
+<h4 class="heading"> Big Idea </h4>
+<div class="ideaSticky">
+	<div class="mediumSticky">
+			<%=image_tag("GreenSticky.gif", height: "200", alt: "Sticky Unit")%>
+				<div class="mediumBox">
+				<% if @idea[0] != nil %>
+					<span id="bigIdea" class="mediumText"><%= @idea[0].goal %> </span>
+				<% else %>
+					<textarea id="bigIdea" class='mediumText'></textarea>
+				<% end %>
+				</div>
+		</div>
+</div>

@@ -1,0 +1,16 @@
+<h4 class="heading"> Enduring Understandings </h4>
+
+<div id="sticky3" class="post-its">
+<button onclick="addUnderstanding()" class="addButton">Add Understanding</button>
+
+<% @goals3.each do |g| %>
+	<div class="mediumSticky">
+		<%=image_tag("PinkSticky.gif", height: "200", alt: "Sticky Unit")%>
+		<div class="mediumBox">
+			<span class="mediumText"><%= g.goal %> </span>
+		</div>
+	</div>
+<% end %>
+			
+
+</div>

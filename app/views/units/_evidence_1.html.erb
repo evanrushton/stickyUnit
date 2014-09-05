@@ -1,0 +1,26 @@
+<div class="1"><h4 class="heading"> Evidence for Knowledge and Skills </h4>
+	<div id="goalEvidence1" class="post-its">
+		<% @unit.goals.each do |g| %>
+		<% if g.level == 1 %> 
+		<div id=<%="knowEvidence"%> class="knowEvidence">
+			<div class="post-it1Center">
+				<%=image_tag("LittlePurpleSticky.gif", height: "200", alt: "Purple Sticky")%>
+					<div class="smallBox">
+						 <span class="smallText"><%= g.goal %> </span>
+					</div>
+			</div>
+			<div class="mediumSticky">
+				<%=image_tag("YellowSticky.gif", height: "200", alt: "Sticky Unit")%>
+					<div class="mediumBox">
+						<% if g.evidence != nil %>
+						<span class="mediumText"><%= g.evidence.evidence %> </span>
+						<% else %>
+						 <textarea class="mediumText"></textarea>
+						<% end %>
+					</div>
+			</div>
+		</div>
+		<% end %>
+		<% end %>
+	</div>
+</div>	

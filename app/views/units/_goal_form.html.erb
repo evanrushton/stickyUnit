@@ -1,0 +1,12 @@
+<% @goals.each do |g| %>
+	<div class="mediumSticky">
+		<%=image_tag("PinkSticky.gif", height: "200", alt: "Sticky Unit")%>
+			<div class="mediumBox">
+				<span class="mediumText"><%= g.goal %> </span>
+				<%= form_for(@goal, remote: true) do |f| %>
+					<%= f.text_area %>
+					<%= f.submit "create" %>
+				<% end %>
+			</div>
+	</div>
+<% end %>

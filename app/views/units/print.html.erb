@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>MyUnitPlan</title>
+    <link rel="stylesheet" href="print.css">
+  </head>
+  <h1>Insert name of Unit</h1>
+  <body>
+    <table>
+      <tbody>
+          <table>
+            <tr>
+              <td class="heading">GOALS</td>
+              <td class="heading">EVIDENCE</td>
+            </tr>
+            <tr> 
+              <td>Big Idea</td>
+              <% @unit.goals.each do |g| %>
+                <% if g.level == 4 %>
+                  <p class="Big Idea"><%= g.goal %> </p>
+                <% end %>
+              <% end %>
+              <td>Evidence</td>
+            </tr>
+            <tr>   
+              <td>Enduring Understandings</td>
+              <% @unit.goals.each do |g| %>
+                <% if g.level == 3 %>
+                  <p class="Enduring Understanding"><%= g.goal %> </p>
+                <% end %>
+              <% end %>
+              <td>Evidence</td> 
+            </tr>
+            <tr>
+              <td>Essential Questions</td>
+              <% @unit.goals.each do |g| %>
+                <% if g.level == 2 %>
+                  <div class="Essential Question"><%= g.goal %> </div>
+                <% end %>
+              <% end %>
+              <td>Evidence</td>
+            </tr>
+            <tr>
+              <td>Knowledge and Skills</td>
+              <% @unit.goals.each do |g| %>
+                <% if g.level == 1 %>
+                  <div class="Knowledge and Skill"><%= g.goal %> </div>
+                <% end %>
+              <% end %>
+              <td>Evidence</td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td class="heading">ASSESSMENT</td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td>Task Assessment</td>
+              <td>Academic Prompts</td>
+            </tr>
+            <tr> 
+              <td>Tests and Quizzes</td>
+              <td>Informal Checks for Understanding</td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td class="heading">LEARNING ACTIVITIES</td>
+            </tr>
+            <tr>
+              <td>Insert Learning Activities</td>
+            </tr>
+          </table>  
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<h4 class="heading"> Essential Questions </h4>
+<div id="sticky2" class="post-its">
+<button onclick="addQuestion()" class="addButton">Add Question</button>
+	<% @unit.goals.each do |g| %>
+		<% if g.level == 2 %>
+		<div class="mediumSticky">
+			<%=image_tag("RedSticky.gif", height: "200", alt: "Sticky Unit")%>
+				<div class="mediumBox">
+					 <span class="mediumText"><%= g.goal %> </span>
+					</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>
